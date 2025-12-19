@@ -1,0 +1,40 @@
+.navbarContainer{
+
+  display: flex;
+  flex-direction: column; /* stack content vertically */
+  padding: 0.8rem 4rem;
+  gap: 1rem;
+}
+
+.navbarHeader{
+
+  display: flex;
+  flex-direction: row; /* allow header + divider to stack */
+  justify-content: space-between; /* align items horizontally */
+  gap: 0.5rem; /* spacing between header content and divider */
+
+}
+
+.divider{
+
+  border: 1px solid #4d7298;
+  width: 100%; 
+}
+
+.navbarContainer h1{
+
+    color:#77a6b6;
+
+}
+
+.buttonContainer{
+
+    display: flex;
+    flex-direction:row;
+    gap:2rem;
+}
+
+.buttonContainer button{
+    background-color:#4d7298;
+    
+}
