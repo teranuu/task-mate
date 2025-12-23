@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Archivo";
+  src: url("../assets/Archivo-VariableFont_wdth,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../assets/Archivo-Italic-VariableFont_wdth,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ranade";
+  src: url("../assets/Ranade-Variable.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ranade";
+  src: url("../assets/Ranade-VariableItalic.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
