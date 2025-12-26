@@ -1,0 +1,81 @@
+/* ===== Trigger ===== */
+.SelectTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  width:9rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #000000;
+
+}
+
+.SelectTrigger:focus-visible {
+  outline: 2px solid #4f46e5; /* indigo focus */
+  outline-offset: 2px;
+}
+
+/* ===== Value ===== */
+.SelectValue {
+  
+}
+
+/* ===== Icon ===== */
+.SelectIcon {
+  margin-left: 8px;
+  color: #666;
+}
+
+/* ===== Dropdown ===== */
+.SelectContent {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  box-shadow:
+    0 10px 15px -3px rgba(0,0,0,0.1),
+    0 4px 6px -2px rgba(0,0,0,0.05);
+
+  overflow: hidden;
+}
+
+/* ===== Viewport ===== */
+.SelectViewport {
+  padding: 10px;
+}
+
+/* ===== Items ===== */
+.SelectItem {
+  padding: 6px 10px;
+  border-radius: 4px;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.SelectItem[data-highlighted] {
+  background: #f3f4f6;
+}
+
+.SelectItem[data-state="checked"] {
+  background: #e0e7ff;
+}
+
+/* ===== Label ===== */
+.SelectLabel {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+}
+
+/* ===== Separator ===== */
+.SelectSeparator {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 4px;
+}

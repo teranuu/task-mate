@@ -2,7 +2,7 @@
 
   display: flex;
   flex-direction: column; /* stack content vertically */
-  padding: 0.8rem 4rem;
+  /* padding: 0.8rem 4rem; */
   gap: 1rem;
 }
 
@@ -17,13 +17,13 @@
 
 .divider{
 
-  border: 1px solid #4d7298;
+  border: 1px solid #000;
   width: 100%; 
 }
 
 .navbarContainer h1{
 
-    color:#77a6b6;
+    color:#000;
 
 }
 
@@ -31,10 +31,10 @@
 
     display: flex;
     flex-direction:row;
-    gap:2rem;
+    gap:1rem;
 }
 
 .buttonContainer button{
-    background-color:#4d7298;
-    
+    background-color:#000;
+    width: 8rem;
 }

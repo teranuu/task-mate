@@ -1,0 +1,7 @@
+.dashboardWrapper{
+
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem 4rem;
+    gap: 1rem;
+}
