@@ -1,10 +1,10 @@
 import * as Select from '@radix-ui/react-select';
 import styles from './select.module.css';
-function SelectRadix(){
+function SelectRadix( {status, onValueChange} ){
 
     return(
         <>
-        <Select.Root>
+        <Select.Root value={status} onValueChange={onValueChange}>
             <Select.Trigger className={styles.SelectTrigger}>
             <Select.Value className={styles.SelectValue} placeholder="Status"/>
             <Select.Icon className={styles.SelectIcon}>▼</Select.Icon>

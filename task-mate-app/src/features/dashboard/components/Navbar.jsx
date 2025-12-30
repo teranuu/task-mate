@@ -1,7 +1,7 @@
 import styles from '../styles/navbar.module.css';
 import { useState } from 'react';
 import AddTaskModal from '../../../components/AddTaskModal/AddTaskModal';
-function Navbar(){
+function Navbar({ onAddTask }){
 
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
@@ -12,7 +12,7 @@ function Navbar(){
 
             <div className={styles.navbarHeader}>
 
-                <h1>Task Mate</h1>
+                <h1>task mate</h1>
                 
                 <div className={styles.buttonContainer}>
 
@@ -28,7 +28,7 @@ function Navbar(){
              <div className={styles.divider}/>
            
            { isAddModalOpen && (
-                <AddTaskModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
+                <AddTaskModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} onAddTask={onAddTask} />
            )}
        
             

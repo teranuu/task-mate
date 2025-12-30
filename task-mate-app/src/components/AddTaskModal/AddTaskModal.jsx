@@ -2,8 +2,22 @@ import styles from './add.modal.module.css';
 import SelectRadix from '../Select/SelectRadix';
 import Modal from '../Modal/Modal';
 import { SquarePlus } from 'lucide-react';
+import { useState } from 'react';
 
-function AddTaskModal({ isOpen, onClose, task}){
+function AddTaskModal({ isOpen, onClose, onAddTask }){
+
+    const [status, setStatus] = useState('todo');
+    const [description, setDescription] = useState('');
+
+    const submit = () => {
+
+        onAddTask({
+            id: crypto.randomUUID(),
+            description,
+            status
+        });
+
+    };
 
     return(
         <>  
@@ -26,13 +40,12 @@ function AddTaskModal({ isOpen, onClose, task}){
                             
                                 <div className={styles.divider} style={{boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}/>
         
-                                <SelectRadix style={{width: '3rem'}}/>
+                                <SelectRadix style={{width: '3rem'} } value={status} onValueChange={(value) => setStatus(value)}/>
                                     
                                 <div className={styles.inputWrapper}>
-                                    <form className={styles.formParent}>
-                                        <textarea type="text"  className={styles.formChild}></textarea>
-                                    </form>
-        
+                                    
+                                        <textarea type="text"  className={styles.formChild} value={description} onChange={e => setDescription(e.target.value)} />
+                                
                                 </div>
                                 
                                 
@@ -40,7 +53,10 @@ function AddTaskModal({ isOpen, onClose, task}){
                                     justifyContent:'flex-end',
                                     gap:'0.7rem'
                                 }}>
-                                    <button onClick={onClose}>Save Changes</button>
+                                    <button onClick={ () => {
+                                        onClose(); 
+                                        submit();
+                                        }}>Save Changes</button>
                                     <button>Reset Changes</button>
                                 </div>
                                 
