@@ -1,22 +1,30 @@
 import styles from './add.modal.module.css';
 import SelectRadix from '../Select/SelectRadix';
 import Modal from '../Modal/Modal';
-import { SquarePlus } from 'lucide-react';
+import { Network, SquarePlus } from 'lucide-react';
 import { useState } from 'react';
 
 function AddTaskModal({ isOpen, onClose, onAddTask }){
 
     const [status, setStatus] = useState('todo');
     const [description, setDescription] = useState('');
-
+    const [title, setTitle] = useState('');
+    
     const submit = () => {
+        const now = new Date().toISOString();
 
         onAddTask({
             id: crypto.randomUUID(),
+            title,
             description,
-            status
+            status,
+            created_at: now,
+            updated_at: now,
         });
 
+        setTitle('');
+        setDescription('');
+        setStatus('pending');
     };
 
     return(
@@ -40,11 +48,17 @@ function AddTaskModal({ isOpen, onClose, onAddTask }){
                             
                                 <div className={styles.divider} style={{boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}/>
         
-                                <SelectRadix style={{width: '3rem'} } value={status} onValueChange={(value) => setStatus(value)}/>
+                                <SelectRadix style={{width: '3rem'} } value={status} onValueChange={setStatus}/>
+                                
+                                <div className={styles.inputWrapper} style={{height:"3rem", display:"flex", alignItems:"center"}}>
                                     
+                                        <input type="text"  className={styles.formChild} style={{justifyContent:"center"}} placeholder="Set Task Title here" value={title} onChange={e => setTitle(e.target.value)} />
+                                
+                                </div>
+
                                 <div className={styles.inputWrapper}>
                                     
-                                        <textarea type="text"  className={styles.formChild} value={description} onChange={e => setDescription(e.target.value)} />
+                                        <textarea type="text"  className={styles.formChild} placeholder="Set Description here" value={description} onChange={e => setDescription(e.target.value)} />
                                 
                                 </div>
                                 

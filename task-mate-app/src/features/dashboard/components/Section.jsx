@@ -1,7 +1,8 @@
 import styles from '../styles/section.module.css';
 import TaskCard from '../../../components/TaskCard/TaskCard.jsx';
 
-function Section({ tasks }){
+function Section({ tasks, onDelete, onUpdate }){
+
 
 
     return(
@@ -10,8 +11,9 @@ function Section({ tasks }){
                 {
                     tasks.map(task => (
                         <TaskCard key={task.id}
-                                  description={task.description} 
-                                  status ={task.status}
+                                  task={task}
+                                  onDelete ={onDelete}
+                                  onUpdate ={onUpdate}
                         />  
                     ))
                 }

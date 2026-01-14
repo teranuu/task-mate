@@ -2,8 +2,38 @@ import styles from './edit.modal.module.css';
 import Modal from '../Modal/Modal';
 import SelectRadix from '../Select/SelectRadix';
 import { Pen } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
-function EditTaskModal({ isOpen, onClose, task }){
+function EditTaskModal({ isOpen, onClose, onUpdate, task }){
+
+    const { 
+        title: initialTitle, 
+        description: initialDescription, 
+        status: initialStatus, 
+    } = task;
+
+    const[title, setTitle] = useState(initialTitle);
+    const[description, setDescription] = useState(initialDescription);
+    const[status, setStatus] = useState(initialStatus);
+
+    useEffect(() => {
+        setTitle(initialTitle);
+        setDescription(initialDescription);
+        setStatus(initialStatus);
+    }, [initialTitle, initialDescription, initialStatus]);
+
+    const handleSave = () => {
+
+        onUpdate({
+            ...task,
+            title,
+            description,
+            status,
+        });
+        onClose();
+
+    }
+
     return(
         <>
 
@@ -25,13 +55,18 @@ function EditTaskModal({ isOpen, onClose, task }){
                             
                                 <div className={styles.divider} style={{boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}/>
         
-                                <SelectRadix style={{width: '3rem'}}/>
+                                <SelectRadix style={{width: '3rem'}} placeholder="Status" value={status} onValueChange={setStatus}/>
+
+                                <div className={styles.inputWrapper} style={{height:"3rem", display:"flex", alignItems:"center"}}>
+                                                                    
+                                        <input type="text"  className={styles.formChild} style={{justifyContent:"center"}} value={title} onChange = {(e) => setTitle(e.target.value) }placeholder="Edit Task Title here"/>
+                                                                
+                                </div>
                                     
                                 <div className={styles.inputWrapper}>
-                                    <form className={styles.formParent}>
-                                        <textarea type="text"  className={styles.formChild}></textarea>
-                                    </form>
-        
+                                    
+                                        <textarea type="text"  className={styles.formChild} value={description} onChange = {(e) => setDescription(e.target.value)} placeholder="Edit Description here"/>
+                                    
                                 </div>
                                 
                                 
@@ -39,8 +74,12 @@ function EditTaskModal({ isOpen, onClose, task }){
                                     justifyContent:'flex-end',
                                     gap:'0.7rem'
                                 }}>
-                                    <button onClick={onClose}>Save Changes</button>
-                                    <button>Reset Changes</button>
+                                    <button onClick={handleSave}>Save Changes</button>
+                                    <button onClick={() => {
+                                        setTitle(initialTitle);
+                                        setDescription(initialDescription);
+                                        setStatus(initialStatus);
+                                    }}>Reset Changes</button>
                                 </div>
                                 
                             </div>

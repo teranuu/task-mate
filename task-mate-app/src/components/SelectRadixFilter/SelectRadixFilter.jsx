@@ -1,10 +1,10 @@
 import * as Select from '@radix-ui/react-select';
 import styles from './select.module.css';
-function SelectRadix( {placeHolder, status, onValueChange, ...props} ){
+function SelectRadixFilter( {placeHolder, value, onValueChange, ...props} ){
 
     return(
         <>
-        <Select.Root value={status} onValueChange={onValueChange}>
+        <Select.Root value={value} onValueChange={onValueChange}>
             <Select.Trigger className={styles.SelectTrigger} {...props}>
             <Select.Value className={styles.SelectValue} placeholder={placeHolder}/>
             <Select.Icon className={styles.SelectIcon}>▼</Select.Icon>
@@ -22,8 +22,8 @@ function SelectRadix( {placeHolder, status, onValueChange, ...props} ){
                         <Select.ItemText>In-Progress</Select.ItemText>
                     </Select.Item>
 
-                    <Select.Item value="done" className={styles.SelectItem}>
-                        <Select.ItemText>Done</Select.ItemText>
+                    <Select.Item value="all" className={styles.SelectItem}>
+                        <Select.ItemText>All</Select.ItemText>
                     </Select.Item>
                 </Select.Group>
 
@@ -39,4 +39,4 @@ function SelectRadix( {placeHolder, status, onValueChange, ...props} ){
 
 }
 
-export default SelectRadix;
+export default SelectRadixFilter;

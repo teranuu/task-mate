@@ -1,9 +1,12 @@
 import styles from '../styles/navbar.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AddTaskModal from '../../../components/AddTaskModal/AddTaskModal';
-function Navbar({ onAddTask }){
+import SelectRadixFilter from '../../../components/SelectRadixFilter/SelectRadixFilter';
+
+function Navbar({ onAddTask, statusFilter, onStatusChange }){
 
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+    
 
     return(
         <>
@@ -16,8 +19,8 @@ function Navbar({ onAddTask }){
                 
                 <div className={styles.buttonContainer}>
 
-                    <button type="button" onClick={() => setIsAddModalOpen(true)}>Add Task</button>
-                    <button type="button">Filter Status</button>
+                    <button type="button" style={{ backgroundColor: '#000', width: '8rem' }} onClick={() => setIsAddModalOpen(true)}>Add Task</button>
+                    <SelectRadixFilter value={statusFilter} onValueChange={onStatusChange} placeHolder="Filter Status"/>
 
                 </div>
 
