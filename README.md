@@ -1,35 +1,73 @@
-Task Tracker / Manager
+# Task Tracker / Manager
 
-Requirements:
+A simple command-line Task Tracker application that allows users to manage tasks efficiently. Tasks are stored locally in a JSON file, and all interactions are performed via command-line arguments.
 
-The application should run from the command line, accept user actions and inputs as arguments, and store the tasks in a JSON file. The user should be able to:
+This project focuses on core programming concepts such as file handling, command-line interfaces, and data persistence—without relying on external libraries or frameworks.
 
-Add, Update, and Delete tasks
-Mark a task as in progress or done
-List all tasks
-List all tasks that are done
-List all tasks that are not done
-List all tasks that are in progress
+---
 
+## Features
 
-Implementation Constraints:
+The application allows users to:
 
-You can use any programming language to build this project.
-Use positional arguments in command line to accept user inputs.
-Use a JSON file to store the tasks in the current directory.
-The JSON file should be created if it does not exist.
-Use the native file system module of your programming language to interact with the JSON file.
-Do not use any external libraries or frameworks to build this project.
-Ensure to handle errors and edge cases gracefully.
+- Add a new task
+- Update an existing task
+- Delete a task
+- Mark a task as **todo**, **in-progress**, or **done**
+- List all tasks
+- List tasks by status:
+  - Done
+  - Not done (todo)
+  - In progress
 
+---
 
-Task Properties:
+## Task Properties
 
-Task Entity
-Each task should have the following properties:
+Each task is stored as a JSON object with the following fields:
 
-id: A unique identifier for the task
-description: A short description of the task
-status: The status of the task (todo, in-progress, done)
-createdAt: The date and time when the task was created
-updatedAt: The date and time when the task was last updated
+- **id**: Unique identifier for the task  
+- **description**: Short description of the task  
+- **status**: Task status (`todo`, `in-progress`, `done`)  
+- **createdAt**: Date and time when the task was created  
+- **updatedAt**: Date and time when the task was last updated  
+
+---
+
+## Data Storage
+
+- Tasks are stored in a `tasks.json` file in the current directory.
+- The file is automatically created if it does not exist.
+- All task data is persisted between runs.
+
+---
+
+## Usage
+
+The application is executed from the command line using positional arguments.
+
+### Examples
+
+```bash
+# Add a new task
+task-cli add "Buy groceries"
+
+# Update a task description
+task-cli update 1 "Buy groceries and cook dinner"
+
+# Delete a task
+task-cli delete 1
+
+# Mark a task as in progress
+task-cli mark-in-progress 2
+
+# Mark a task as done
+task-cli mark-done 2
+
+# List all tasks
+task-cli list
+
+# List tasks by status
+task-cli list done
+task-cli list todo
+task-cli list in-progress
